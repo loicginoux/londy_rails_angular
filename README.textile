@@ -1,22 +1,8 @@
 h1. Rails Devise
 
-This application was generated with the "rails_apps_composer":https://github.com/RailsApps/rails_apps_composer gem provided by the "RailsApps Project":http://railsapps.github.io/.
+This is a work in progress.
 
-h2. Diagnostics
-
-This application was built with recipes that are known to work together.
-
-This application was built with preferences that are NOT known to work together.
-
-If the application doesn't work as expected, please "report an issue":https://github.com/RailsApps/rails_apps_composer/issues and include these diagnostics:
-
-We'd also like to know if you've found combinations of recipes or preferences that do work together.
-
-Recipes:
-["apps4", "controllers", "core", "email", "extras", "frontend", "gems", "git", "init", "models", "prelaunch", "railsapps", "readme", "routes", "saas", "setup", "testing", "views"]
-
-Preferences:
-{:git=>true, :apps4=>"rails-devise", :unit_test=>false, :integration=>false, :fixtures=>false, :authentication=>"devise", :authorization=>false, :starter_app=>"users_app", :form_builder=>"simple_form", :quiet_assets=>true, :local_env_file=>true, :better_errors=>true, :dev_webserver=>"webrick", :prod_webserver=>"same", :database=>"sqlite", :templates=>"erb", :continuous_testing=>"none", :frontend=>"foundation5", :email=>"gmail", :devise_modules=>"default", :rvmrc=>true}
+The goal is to provide an example application for Rails 4.0 with authentication using Devise.
 
 h2. Ruby on Rails
 
@@ -40,26 +26,6 @@ h2. Development
 * Authentication: Devise
 * Authorization: None
 
-h2. Email
-
-The application is configured to send email using a Gmail account.
-
-h2. Getting Started
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-h2. Documentation and Support
-
-This is the only documentation.
-
-h4. Issues
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-h2. Similar Projects
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
 h2. Contributing
 
 If you make improvements to this application, please share with others.
@@ -71,10 +37,7 @@ If you make improvements to this application, please share with others.
 
 If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
 
-h2. Credits
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+h2. MIT License
 
-h2. License
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+"MIT License":http://www.opensource.org/licenses/mit-license
