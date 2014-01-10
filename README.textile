@@ -128,6 +128,11 @@ The application generator template will ask you for additional preferences:
        2)  Thin
        3)  Unicorn
        4)  Puma
+ question  Database used in development?
+       1)  SQLite
+       2)  PostgreSQL
+       3)  MySQL
+       4)  MongoDB
  question  Template engine?
        1)  ERB
        2)  Haml
@@ -142,6 +147,17 @@ The application generator template will ask you for additional preferences:
        4)  Twitter Bootstrap 3.0
        5)  Twitter Bootstrap 2.3
        6)  Simple CSS
+    setup  The Devise 'forgot password' feature requires email.
+ question  Add support for sending email?
+       1)  None
+       2)  Gmail
+       3)  SMTP
+       4)  SendGrid
+       5)  Mandrill
+ question  Devise modules?
+       1)  Devise with default modules
+       2)  Devise with Confirmable module
+       3)  Devise with Confirmable and Invitable modules
    extras  Set a robots.txt file to ban spiders? (y/n)
    extras  Create a GitHub repository? (y/n)
    extras  Use or create a project-specific rvm gemset? (y/n)
@@ -153,9 +169,25 @@ We recommend Thin in development for speed and less noise in the log files.
 
 If you plan to deploy to Heroku, select Thin as your production webserver. Unicorn is recommended by Heroku but configuration is more complex.
 
+h4. Database
+
+Use SQLite for development on Mac or Linux, unless you already have PostgreSQL installed locally. Use PostgreSQL if you plan to deploy to Heroku. You can easily change the database later if you select SQLite to start.
+
 h4. Template Engine
 
 The example application uses the default "ERB" Rails template engine. Optionally, you can use another template engine, such as Haml or Slim. See instructions for "Haml and Rails":http://railsapps.github.io/rails-haml.html.
+
+h4. Front-end Framework
+
+The example in the GitHub repository was built using Zurb Foundation 5.0. Use Bootstrap if it is your preference.
+
+h4. Email
+
+Choose Gmail for development if you already have a Gmail account. Choose SendGrid or Mandrill for production if your site will be heavily used.
+
+h4. Devise Modules
+
+The example in the GitHub repository uses Devise with default modules.
 
 h4. Other Choices
 
@@ -163,9 +195,9 @@ If you are a beginner, you won't need "continuous testing." If you like to use "
 
 Set a robots.txt file to ban spiders if you want to keep your new site out of Google search results.
 
-It is a good idea to use "RVM":https://rvm.io/, the Ruby Version Manager, and create a project-specific rvm gemset (not available on Windows). See "Installing Rails":http://railsapps.github.io/installing-rails.html.
-
 If you choose to create a GitHub repository, the generator will prompt you for a GitHub username and password.
+
+It is a good idea to use "RVM":https://rvm.io/, the Ruby Version Manager, and create a project-specific rvm gemset (not available on Windows). See "Installing Rails":http://railsapps.github.io/installing-rails.html.
 
 h4. Troubleshooting
 
