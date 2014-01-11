@@ -282,7 +282,6 @@ You can add any credentials to the file *config/application.yml*:
 #
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
-ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
 </pre>
@@ -293,7 +292,7 @@ If you prefer, you can delete the *config/application.yml* file and set each val
 
 For the Gmail username and password, enter the credentials you use to log in to Gmail when you check your inbox. See the article "Send Email with Rails":http://railsapps.github.io/rails-send-email.html if you are using Google two factor authentication.
 
-Set values for @ADMIN_NAME@, @ADMIN_EMAIL@, and @ADMIN_PASSWORD@ for a user that is created when the database is seeded. You will be able to log in to the application with these credentials.
+Set values for @ADMIN_EMAIL@ and @ADMIN_PASSWORD@ for a user that is created when the database is seeded. You will be able to log in to the application with these credentials.
 
 h3. Database Seed File
 
@@ -310,13 +309,13 @@ The *db/seeds.rb* file initializes the database with default values. To keep som
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-puts 'user: ' << user.name
+user = User.find_or_create_by_email :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+puts 'user: ' << user.email
 </pre>
 
-You can change the administrator name, email, and password in this file but it is better to make the changes in the *config/application.yml* file to keep the credentials private. If you decide to include your private password in the *db/seeds.rb* file, be sure to add the filename to your *.gitignore* file so that your password doesn't become available in your public GitHub repository.
+You can change the administrator email, and password in this file but it is better to make the changes in the *config/application.yml* file to keep the credentials private. If you decide to include your private password in the *db/seeds.rb* file, be sure to add the filename to your *.gitignore* file so that your password doesn't become available in your public GitHub repository.
 
-Note that it's not necessary to personalize the *db/seeds.rb* file before you deploy your app. You can deploy the app with an example user and then use the application's "Edit Account" feature to change name, email address, and password after you log in. Use this feature to log in as an administrator and change the user name and password to your own.
+Note that it's not necessary to personalize the *db/seeds.rb* file before you deploy your app. You can deploy the app with an example user and then use the application's "Edit Account" feature to change email address and password after you log in. Use this feature to log in as an administrator and change the email and password to your own.
 
 h3. Set the Database
 
