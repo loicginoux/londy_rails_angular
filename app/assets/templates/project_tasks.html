@@ -1,0 +1,31 @@
+<% for task in @tasks: %>
+<li class="task <% if  task.completed:%>complete<% end %>" draggable="true" data-id="<%= task.id %>">
+  <a href="#" class="checkbox"></a>
+  <a href="#" class="remove"><i>*</i></a>
+  <h1>
+    <a href="#" class="title"><%= task.title%></a>
+    <input value="<%= task.title%><% if  task.assignee_id:%> @<%= task.assignee().name%><% end %><% if  task.due_date:%> -<%= task.convertDateToDisplay()%><% end %>" autofocus="">
+    <span>
+    <% if  task.assignee_id:%>  
+      <a href="#" class="indicator due assignee">
+        <i>U</i>
+        <strong><%= task.assignee().name%></strong>
+      </a>
+    <% end %>
+    <% if  task.due_date:%> 
+      <a href="#" class="indicator due due_date <% if task.isOverdue():%> overdue<% end %>">
+        <i>t</i>
+        <strong><%= task.convertDateToDisplay()%></strong>
+      </a>
+    <% end %>
+    <% if  task.nbComment():%>  
+      <a href="#" class="indicator due comments">
+        <i>w</i>
+        <strong><%= task.nbComment()%></strong>
+      </a>
+    <% end %>
+    </span>
+  </h1>
+  <a href="#" class="showDetails"><i>w</i></a>
+</li>
+<% end %>

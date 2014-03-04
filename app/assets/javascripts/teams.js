@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require turbolinks
-// require foundation
+//= require vendor/underscore
+//= require vendor/angular
+//= require vendor/angular-route
+//= require vendor/angular-resource
+//= require vendor/restangular
+//= require main
+//= require_tree ./app
 
-
-
-// $(function() {
-//   $(document).foundation();
-// });

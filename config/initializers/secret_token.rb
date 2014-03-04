@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RailsDevise::Application.config.secret_key_base = '084c6245014f2a3f8298150a7895b89225d6bb712e4f8acc97ac8e85ffa0445944641312bb743a1ede6f0b730e60806de335c8a16f658a94fca8ec7f25c3cfec'
+RailsDevise::Application.config.secret_key_base = 'c1f4d23d36f8182461d62dc418dac52c7db2e34567c1ffd78e17668486c4c28f73d9dc54daaffdb873b595e85937aa3f9885cfe69a091218d1b3c1f2ebad870c'

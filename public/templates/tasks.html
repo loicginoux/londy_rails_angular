@@ -1,0 +1,28 @@
+<ul>
+  <li ng-repeat="task in tasks" class="task " ng-class="{complete:task.completed}" draggable="true">
+    <a href="#" class="checkbox"></a>
+    <a href="#" class="remove"><i>*</i></a>
+    <h1>
+      <a href="#" class="title">{{task.title}}</a>
+      <input value="{{task.title}}" autofocus="">
+      <span>
+
+        <div ng-if="task.assignee_id">
+          <a href="#" class="indicator due assignee">
+            <i>U</i>
+            <strong>{{task.assignee_id}}</strong>
+          </a>
+        </div>
+
+        <div ng-if="task.due_date">
+          <a href="#" class="indicator due due_date" ng-class="{overdue: task.isOverdue()}">
+            <i>t</i>
+            <strong>{{task.due_date}}</strong>
+          </a>
+        </div>
+
+      </span>
+    </h1>
+    <a href="#" class="showDetails"><i>w</i></a>
+  </li>
+</ul>
