@@ -10,7 +10,6 @@ gem 'jbuilder'
 gem 'devise'
 gem 'figaro'
 gem 'foundation-rails'
-gem 'angular-rails-templates'
 gem 'gon'
 group :development do
   gem 'sqlite3'
