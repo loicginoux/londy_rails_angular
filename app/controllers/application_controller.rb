@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    team_path(current_user.team_id)
+    team_id = current_user.team_id || 1
+    team_path(team_id)
   end
 
   def current_team
-    current_user.team
+    current_user.team || 1
   end
 end
