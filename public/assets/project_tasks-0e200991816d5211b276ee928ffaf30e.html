@@ -1,0 +1,31 @@
+<div class="tasks projectTasks" >
+  <ul class="tags"></ul>
+  <ul class="taskList"
+    ng-repeat="task in tasks" 
+    >
+    <li class="task" ng-class="{complete: task.completed, edit: task == editedTask}">
+      <a class="checkbox" ng-click="toggleComplete(task)"></a>
+      <a class="remove"><i>*</i></a>
+      <h1>
+        <a class="title" ng-click="editTask(task)" >{{ task.content }}</a>
+        <form ng-submit="saveTask(task)">
+          <input 
+            ng-model="task.content" 
+            focus-me="task == editedTask"
+            ng-keydown="onKeyDown($event, task)"
+            >
+        </form>
+      </h1>
+      <a class="showDetails"><i>w</i></a>
+    </li>
+  </ul>
+  <div class="create">
+    <form ng-submit="addTask()">
+      <input type="text"  placeholder="Add task" 
+        ng-model="newTask"
+        blur-me="newTask == ''"
+        >
+      <i>a</i>
+    </form>
+  </div>
+</div>

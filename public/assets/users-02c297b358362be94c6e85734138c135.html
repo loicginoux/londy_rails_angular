@@ -1,0 +1,16 @@
+<ul class="people" ng:class="{show: selectedTab == 'users'}">
+  <li class="user item" ng-repeat="user in users" ng-class="{selected: user == selectedUser, edit: user == editedUser}">
+    <a href="#" ng-click="selectUser(user)">
+      <img src="">
+      <p>{{user.email}}</p>
+    </a>
+  </li>
+  <li>
+    <div class="create small">
+      <form ng-submit="addUser()">
+        <input type="text"  placeholder="Add email for invitation" ng-model="newEmail">
+        <i>a</i>
+      </form>
+    </div>
+  </li>
+</ul>
