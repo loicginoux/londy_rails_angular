@@ -1,117 +1,16 @@
-<section id="londyapp" ng-controller="MainCtrl">
+<div id="londyapp" ng-controller="MainCtrl">
   <div class="settings content">
   </div>
   <div class="sidebar">
     <ul class="tabs">
-      <li ng:click="setTab('projects')" ng-class="{selected: selectedTab == 'projects'}"><a href="#">Projects</a></li>
-      <li ng:click="setTab('team')" ng-class="{selected: selectedTab == 'team'}"><a href="#">Team</a></li>
-      <li ng:click="setTab('profile')" class="me" ng-class="{selected: selectedTab == 'profile'}"><a href="#">Me</a></li>
+      <li ng-class="{selected: selectedTab == 'projects'}"><a ui-sref="projects">Projects</a></li>
+      <li ng-class="{selected: selectedTab == 'users'}"><a ui-sref="users">Team</a></li>
+      <li class="me" ng-class="{selected: selectedTab == 'profile'}"><a ui-sref="profile">Me</a></li>
     </ul>
 
-    <div ng-controller="ProjectListCtrl">
-      <ul class="projects noFolder" ng:class="{show: selectedTab == 'projects'}" >
-        <li class="project item" 
-          ng-repeat="project in projects" 
-          ng-class="{selected: project == selectedProject, edit: project == editedProject}"
-          >
-          <a class="remove" ng-click="deleteProject(project)"><i>*</i></a>
-          <a ng-click="selectProject(project)">
-            <i>l</i>
-            <span>{{project.name}}</span>
-          </a>
-          <form ng-submit="saveProject(project)">
-            <input 
-              ng-model="project.name" 
-              
-              ng-keydown="onKeyDown($event, project)" 
-              focus-me="project == editedProject"
-              >
-          </form>
-          <a href="#" class="edit" ng-click="editProject(project)">y</a>
-        </li>
-        <li>
-          <div class="create small">
-            <form ng-submit="addProject()">
-              <input type="text"  placeholder="Add project list" 
-                ng-model="newProject"
-                focus-me="project == editedProject" 
-                blur-me="newProject == ''"
-                >
-              <i>a</i>
-            </form>
-          </div>
-        </li>
-
-      </ul>
-    </div>        
-
-    <div ng-controller="TeamListCtrl">
-      <ul class="people" ng:class="{show: selectedTab == 'team'}">
-        <li class="user item" ng-repeat="user in users" ng-class="{selected: user == selectedUser, edit: user == editedUser}">
-          <a href="#" ng-click="selectUser(user)">
-            <img src="">
-            <p>{{user.email}}</p>
-          </a>
-        </li>
-        <li>
-          <div class="create small">
-            <form ng-submit="addUser()">
-              <input type="text"  placeholder="Add email for invitation" ng-model="newEmail">
-              <i>a</i>
-            </form>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div ng-controller="editAccountNavCtrl">
-      <ul class="settings" ng-class="{hide: selectedTab!='profile'}">
-        <li class="help">
-          <a href="#"><i>?</i><span>Help</span></a>
-        </li>
-        <li class="profile">
-          <a href="#"><i>U</i><span>Profile</span></a>
-        </li>
-        <li class="account">
-          <a href="#"><i>%</i><span>Account &amp; Billing</span></a>
-        </li>
-        <li class="logout">
-          <a href="/logout"><i>Q</i><span>Logout</span></a>
-        </li>
-      </ul>
-    </div>
+    <div ui-view="sidebar"></div> 
 
   </div>
-  <div ng-controller="taskListCtrl">
-    <div class="tasks projectTasks" >
-      <ul class="tags"></ul>
-      <ul class="taskList"
-        ng-repeat="task in tasks" 
-        ng-class="{selected: task == selected, edit: task == edited}"
-        >
-        <li class="task">
-          <a href="#" class="checkbox"></a>
-          <a href="#" class="remove"><i>*</i></a>
-          <h1>
-            <a href="#" class="title">{{ task.content }}</a>
-            <form ng-submit="saveProject(project)">
-              <input 
-                ng-model="task.content" 
-                >
-            </form>
-          </h1>
-          <a href="#" class="showDetails"><i>w</i></a>
-        </li>
-      </ul>
-      <div class="create">
-        <form ng-submit="addTask()">
-          <input type="text"  placeholder="Add task" 
-            ng-model="newTask"
-            blur-me="newTask == ''"
-            >
-          <i>a</i>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+  <div ui-view="mainContent"></div> 
+
+</div>

@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require vendor/underscore
 //= require vendor/angular
-//= require vendor/angular-route
+//= require vendor/angular-ui-router
 //= require vendor/angular-resource
 //= require vendor/restangular
 //= require main

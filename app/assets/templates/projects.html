@@ -1,0 +1,34 @@
+
+<ul class="projects noFolder" ng:class="{show: selectedTab == 'projects'}" >
+  <li class="project item" 
+  ng-repeat="project in projects" 
+  ng-class="{selected: project == selectedProject, edit: project == editedProject}"
+  >
+  <a class="remove" ng-click="deleteProject(project)"><i>*</i></a>
+  <a ui-sref="projects.show({id: project.id })" ng-click="selectProject(project)">
+    <i>l</i>
+    <span>{{project.name}}</span>
+  </a>
+  <form ng-submit="saveProject(project)">
+    <input 
+    ng-model="project.name" 
+    ng-keydown="onKeyDown($event, project)" 
+    focus-me="project == editedProject"
+    >
+  </form>
+  <a href="#" class="edit" ng-click="editProject(project)">y</a>
+</li>
+<li>
+  <div class="create small">
+    <form ng-submit="addProject()">
+      <input type="text"  placeholder="Add project list" 
+      ng-model="newProject"
+      focus-me="project == editedProject" 
+      blur-me="newProject == ''"
+      >
+      <i>a</i>
+    </form>
+  </div>
+</li>
+
+</ul>
